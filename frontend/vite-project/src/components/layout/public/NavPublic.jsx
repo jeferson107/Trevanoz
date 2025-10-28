@@ -1,57 +1,97 @@
 import React from 'react'
+import { BsCart3 } from "react-icons/bs";
+
 
 export const NavPublic = () => {
     return (
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
-            <div className="container-fluid">
-                <button
-                    className="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarTogglerDemo03"
-                    aria-controls="navbarTogglerDemo03"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span className="navbar-toggler-icon"></span>
-                </button>
+        <header>
+            {/* Header azul superior */}
+            <div  className=" text-white  py-3 px-4 d-flex align-items-center justify-content-between"  style={{ backgroundColor: "#1E2A78"  }}>
+                {/* Logo */}
+                <h1 className="m-0 fs-3 fw-bold " style={{ color: "#F75B1C" }}>
+                    TR<span className="" style={{ color: "#ffffff" }}>E</span>VANOZ
+                </h1>
 
-                <a className="navbar-brand" href="#">
-                    Navbar
-                </a>
+                {/* Buscador */}
+                <form className="d-flex w-50">
+                    <input
+                        className="form-control me-2"
+                        type="search"
+                        placeholder="Hinted search text"
+                        aria-label="Search"
+                    />
+                </form>
 
-                <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                {/* Botones sesión y carrito */}
+                <div className="d-flex align-items-center gap-3">
+                    <a href="#" className="text-white text-decoration-none fw-semibold">
+                        Iniciar sesión
+                    </a>
+                    <a href="#" className="text-white text-decoration-none fw-semibold">
+                        Regístrate
+                    </a>
+                    <div className="position-relative">
+                        <BsCart3 size={24} />
+
+                        <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            3
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            {/* Barra de navegación inferior */}
+            <nav className="navbar navbar-expand-lg bg-light border-top border-bottom sticky-top">
+                <div className="container-fluid justify-content-center">
+                    <ul className="navbar-nav gap-3">
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#">
-                                Home
+                            <a className="nav-link fw-semibold" href="#">
+                                Iniciar sesión
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">
-                                Link
+                            <a className="nav-link fw-semibold" href="#">
+                                Oferta
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link disabled" aria-disabled="true">
-                                Disabled
+                            <a className="nav-link fw-semibold" href="#">
+                                Computador
+                            </a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link fw-semibold" href="#">
+                                Impresora
+                            </a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link fw-semibold" href="#">
+                                TV
+                            </a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link fw-semibold" href="#">
+                                Equipo de sonido
+                            </a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link fw-semibold" href="#">
+                                Videojuego
+                            </a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link fw-semibold" href="#">
+                                Ropa mujer
+                            </a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link fw-semibold" href="#">
+                                Accesorios
                             </a>
                         </li>
                     </ul>
-
-                    <form className="d-flex" role="search">
-                        <input
-                            className="form-control me-2"
-                            type="search"
-                            placeholder="Search"
-                            aria-label="Search"
-                        />
-                        <button className="btn btn-outline-success" type="submit">
-                            Search
-                        </button>
-                    </form>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </header>
     )
 }
