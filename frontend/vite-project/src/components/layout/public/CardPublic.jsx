@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../../assets/css/LayoutPublic/card.css';
 
 const cards = [
@@ -21,15 +21,52 @@ const cards = [
     img: "https://www.pcware.com.co/wp-content/uploads/2024/11/Arm900_1.jpg",
     title: "Card title 4",
     text: "Inspirado en el diseño del proyecto TechStore.",
+  },
+  {
+    img: "https://peruimporta.com/wp-content/uploads/2023/06/Lapiz-tactil-peruimporta.jpg",
+    title: "Card title 5",
+    text: "Laptop gamer con alto rendimiento y estilo profesional.",
+  },
+  {
+    img: "https://tauretcomputadores.com/images/products/Product_20210420180828134312461.png",
+    title: "Card title 6",
+    text: "Pantallas 4K para una experiencia visual impresionante.",
+  },
+  {
+    img: "https://enjoyvideogames.com.co/wp-content/uploads/2025/07/14-932-815-01.webp",
+    title: "Card title 7",
+    text: "Auriculares con sonido envolvente para gamers exigentes.",
+  },
+  {
+    img: "https://jesistem.com/wp-content/uploads/2024/10/5700g.png.webp",
+    title: "Card title 8",
+    text: "Mouse ergonómico con alta precisión y diseño moderno.",
+  },
+  {
+    img: "https://cdn.thewirecutter.com/wp-content/media/2024/03/webcam-2048px-1.jpg",
+    title: "Card title 9",
+    text: "Cámara web HD ideal para videollamadas y streaming.",
+  },
+  {
+    img: "https://peruimporta.com/wp-content/uploads/2023/06/Lapiz-tactil-peruimporta.jpg",
+    title: "Card title 10",
+    text: "Notebook potente y ligera, ideal para estudiantes.",
   }
 ];
 
 export const CardPublic = () => {
+  const [visibleCards, setVisibleCards] = useState(4); // Muestra 4 al inicio
+
+  const handleLoadMore = () => {
+    setVisibleCards((prev) => prev + 4); // Muestra 4 más cada vez
+  };
+
+  const hasMore = visibleCards < cards.length; // Si hay más para mostrar
+
   return (
     <div className="container my-5">
-      <h2 className="text-center mb-4 text-primary">🔥 Ofertas Destacadas 🔥</h2>
       <div className="row row-cols-1 row-cols-md-4 g-4 justify-content-center">
-        {cards.map((card, index) => (
+        {cards.slice(0, visibleCards).map((card, index) => (
           <div className="col d-flex justify-content-center" key={index}>
             <div className="custom-card">
               <div className="etiqueta-descuento">-20%</div>
@@ -41,6 +78,15 @@ export const CardPublic = () => {
           </div>
         ))}
       </div>
+
+      {/* Botón “Ver más” (solo aparece si hay más por mostrar) */}
+      {hasMore && (
+        <div className="text-center mt-4">
+          <button className="btn-vermas" onClick={handleLoadMore}>
+            Ver más
+          </button>
+        </div>
+      )}
     </div>
   );
 };
